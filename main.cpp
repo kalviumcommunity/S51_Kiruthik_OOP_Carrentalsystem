@@ -14,10 +14,10 @@ public:
         this->year=year;
     }
     string getMake() { 
-        return make; 
+        return this->make; 
     }
     string getModel(){ 
-    return model; 
+    return this->model; 
     }
 };
 class Customer {
