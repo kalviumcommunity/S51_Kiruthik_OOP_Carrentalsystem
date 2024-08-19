@@ -6,18 +6,31 @@ class Car {
 private:
     string modelName;
     double rentalRate;
+    static int totalCarsCreated;  
+    static double totalRentalRates;  
 
 public:
-   void setValues(string modelName, double rentalRate) {
+    void setValues(string modelName, double rentalRate) {
         this->modelName = modelName;
         this->rentalRate = rentalRate;
+        totalCarsCreated++;  
+        totalRentalRates += rentalRate;  
     }
 
     void displayCarInfo() {
         cout << "Model Name: " << modelName << endl;
         cout << "Rental Rate per Day: Rs" << rentalRate << endl;
     }
+
+    
+    static void displayStatistics() {
+        cout << "Total Cars Created: " << totalCarsCreated << endl;
+        cout << "Total of All Rental Rates: Rs" << totalRentalRates << endl;
+    }
 };
+
+int Car::totalCarsCreated = 0;
+double Car::totalRentalRates = 0.0;
 
 int main() {
     int totalCars;
@@ -44,6 +57,9 @@ int main() {
         arr[i].displayCarInfo();
         cout << endl;
     }
+
+
+    Car::displayStatistics();
    
     delete[] arr;
 
