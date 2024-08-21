@@ -23,7 +23,7 @@ public:
     }
 
     
-    static void displayStatistics() {
+    static void displayfunction() {
         cout << "Total Cars Created: " << totalCarsCreated << endl;
         cout << "Total of All Rental Rates: Rs" << totalRentalRates << endl;
     }
@@ -59,7 +59,7 @@ int main() {
     }
 
 
-    Car::displayStatistics();
+    Car::displayfunction();
    
     delete[] arr;
 
