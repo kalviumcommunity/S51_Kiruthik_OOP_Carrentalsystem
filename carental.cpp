@@ -7,14 +7,31 @@ private:
     string modelName;
     double rentalRate;
     static int totalCarsCreated;  
-    static double totalRentalRates;  
+    static double totalRentalRates;
 
 public:
+    string getModelName() {
+        return modelName;
+    }
+
+    double getRentalRate() {
+        return rentalRate;
+    }
+
+
+    void setModelName(string modelName) {
+        this->modelName = modelName;
+    }
+
+    void setRentalRate(double rentalRate) {
+        this->rentalRate = rentalRate;
+    }
+
     void setValues(string modelName, double rentalRate) {
         this->modelName = modelName;
         this->rentalRate = rentalRate;
-        totalCarsCreated++;  
-        totalRentalRates += rentalRate;  
+        totalCarsCreated++;
+        totalRentalRates += rentalRate;
     }
 
     void displayCarInfo() {
@@ -22,7 +39,6 @@ public:
         cout << "Rental Rate per Day: Rs" << rentalRate << endl;
     }
 
-    
     static void displayfunction() {
         cout << "Total Cars Created: " << totalCarsCreated << endl;
         cout << "Total of All Rental Rates: Rs" << totalRentalRates << endl;
@@ -32,11 +48,41 @@ public:
 int Car::totalCarsCreated = 0;
 double Car::totalRentalRates = 0.0;
 
+class Customer {
+private:
+    string customerName;
+    string customerContact;
+
+public:
+
+    string getCustomerName() {
+        return customerName;
+    }
+
+    string getCustomerContact() {
+        return customerContact;
+    }
+
+    void setCustomerName(string customerName) {
+        this->customerName = customerName;
+    }
+
+    void setCustomerContact(string customerContact) {
+        this->customerContact = customerContact;
+    }
+
+    void displayCustomerInfo() {
+        cout << "Customer Name: " << customerName << endl;
+        cout << "Customer Contact: " << customerContact << endl;
+    }
+};
+
 int main() {
     int totalCars;
     cout << "Enter the total number of cars: ";
     cin >> totalCars;
-    cin.ignore(); 
+    cin.ignore();
+
     Car* arr = new Car[totalCars];
 
     for (int i = 0; i < totalCars; ++i) {
@@ -46,7 +92,7 @@ int main() {
         getline(cin, modelName);
         cout << "Enter rental rate per day for car " << i + 1 << ": Rs";
         cin >> rentalRate;
-        cin.ignore();  
+        cin.ignore();
 
         arr[i].setValues(modelName, rentalRate);
     }
@@ -58,9 +104,15 @@ int main() {
         cout << endl;
     }
 
-
     Car::displayfunction();
-   
+    
+    Customer customer1;
+    customer1.setCustomerName("John Doe");
+    customer1.setCustomerContact("+91 9876543210");
+
+    cout << endl << "Customer Information:" << endl;
+    customer1.displayCustomerInfo();
+
     delete[] arr;
 
     return 0;
