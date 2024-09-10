@@ -4,12 +4,13 @@ using namespace std;
 
 class Car {
 private:
-    string modelName;
-    double rentalRate;
-    static int totalCarsCreated;  
+    string modelName;         
+    double rentalRate;        
+    static int totalCarsCreated;
     static double totalRentalRates;
 
 public:
+   
     string getModelName() {
         return modelName;
     }
@@ -17,7 +18,6 @@ public:
     double getRentalRate() {
         return rentalRate;
     }
-
 
     void setModelName(string modelName) {
         this->modelName = modelName;
@@ -50,11 +50,11 @@ double Car::totalRentalRates = 0.0;
 
 class Customer {
 private:
-    string customerName;
-    string customerContact;
+    string customerName;       
+    string customerContact;    
 
 public:
-
+   
     string getCustomerName() {
         return customerName;
     }
