@@ -10,7 +10,24 @@ private:
     static double totalRentalRates;
 
 public:
-   
+    Car() {
+        modelName = "Unknown";
+        rentalRate = 0.0;
+        cout << "Default constructor called for a Car." << endl;
+    }
+
+    Car(string model, double rate) {
+        modelName = model;
+        rentalRate = rate;
+        totalCarsCreated++;
+        totalRentalRates += rentalRate;
+        cout << "Parameterized constructor called for Car: " << modelName << endl;
+    }
+
+    ~Car() {
+        cout << "Destructor called for Car: " << modelName << endl;
+    }
+
     string getModelName() {
         return modelName;
     }
@@ -54,7 +71,23 @@ private:
     string customerContact;    
 
 public:
-   
+    Customer() {
+        customerName = "Unknown";
+        customerContact = "Unknown";
+        cout << "Default constructor called for a Customer." << endl;
+    }
+
+    Customer(string name, string contact) {
+        customerName = name;
+        customerContact = contact;
+        cout << "Parameterized constructor called for Customer: " << customerName << endl;
+    }
+
+    ~Customer() {
+        cout << "Destructor called for Customer: " << customerName << endl;
+    }
+
+    
     string getCustomerName() {
         return customerName;
     }
@@ -97,7 +130,7 @@ int main() {
         arr[i].setValues(modelName, rentalRate);
     }
 
-    cout << endl << "Car Information in arr:" << endl;
+    cout << endl << "Car Information:" << endl;
     for (int i = 0; i < totalCars; ++i) {
         cout << "Car " << i + 1 << ":" << endl;
         arr[i].displayCarInfo();
@@ -105,10 +138,8 @@ int main() {
     }
 
     Car::displayfunction();
-    
-    Customer customer1;
-    customer1.setCustomerName("John Doe");
-    customer1.setCustomerContact("+91 9876543210");
+
+    Customer customer1("John Doe", "+91 9876543210");
 
     cout << endl << "Customer Information:" << endl;
     customer1.displayCustomerInfo();
