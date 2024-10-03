@@ -2,7 +2,7 @@
 #include <string>
 using namespace std;
 
-// Base class
+// Abstract Base class
 class Car {
 protected:
     string modelName;        
@@ -24,6 +24,9 @@ public:
         totalRentalRates += rentalRate;
         cout << "Parameterized constructor called for Car: " << modelName << endl;
     }
+
+    // Pure virtual function making Car an abstract class
+    virtual void displayCarInfo() = 0; // Abstract method, must be overridden in derived classes
 
     virtual ~Car() {
         cout << "Destructor called for Car: " << modelName << endl;
@@ -50,12 +53,6 @@ public:
         this->rentalRate = rentalRate;
         totalCarsCreated++;
         totalRentalRates += rentalRate;
-    }
-
-    // Virtual function for runtime polymorphism
-    virtual void displayCarInfo() {
-        cout << "Model Name: " << modelName << endl;
-        cout << "Rental Rate per Day: Rs" << rentalRate << endl;
     }
 
     static void displayfunction() {
