@@ -2,7 +2,7 @@
 #include <string>
 using namespace std;
 
-// Abstract Base class
+//single responsibility principle
 class Car {
 protected:
     string modelName;        
@@ -64,14 +64,14 @@ public:
 int Car::totalCarsCreated = 0;
 double Car::totalRentalRates = 0.0;
 
-// Derived class 1
+//single responsibility principle
 class LuxuryCar : public Car {
 public:
     LuxuryCar() : Car() {}
 
     LuxuryCar(string model, double rate) : Car(model, rate) {}
 
-    // Overriding base class function
+    //  poly Overriding base class function
     void displayCarInfo() override {
         cout << "Luxury Car - Model Name: " << modelName << endl;
         cout << "Luxury Car - Rental Rate per Day: Rs" << rentalRate << endl;
@@ -82,7 +82,6 @@ public:
     }
 };
 
-// Derived class 2
 class EconomyCar : public Car {
 public:
     EconomyCar() : Car() {}
@@ -99,8 +98,7 @@ public:
         cout << "Destructor called for Economy Car: " << modelName << endl;
     }
 };
-
-// Customer class (No inheritance change here)
+//single responsibility principle
 class Customer {
 private:
     string customerName;      
@@ -179,7 +177,7 @@ int main() {
     cout << endl << "Car Information:" << endl;
     for (int i = 0; i < totalCars; ++i) {
         cout << "Car " << i + 1 << ":" << endl;
-        carArr[i]->displayCarInfo();  // Runtime polymorphism
+        carArr[i]->displayCarInfo();  
         cout << endl;
     }
 
