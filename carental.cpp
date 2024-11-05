@@ -64,7 +64,7 @@ public:
 int Car::totalCarsCreated = 0;
 double Car::totalRentalRates = 0.0;
 
-//single responsibility principle
+//open - closed  principle
 class LuxuryCar : public Car {
 public:
     LuxuryCar() : Car() {}
