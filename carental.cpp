@@ -81,6 +81,7 @@ public:
         cout << "Destructor called for Luxury Car: " << modelName << endl;
     }
 };
+//liskov principle
 
 class EconomyCar : public Car {
 public:
